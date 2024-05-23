@@ -11,11 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{AC4C18
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{FEA83910-5DC2-4DBC-9339-220F8881ECBA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{86CC15D7-548B-488C-BC98-43DE2BF1AD85}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\PROJECTS\PowerPoints\SecurityAccessToken.pptx = ..\..\..\Desktop\PROJECTS\PowerPoints\SecurityAccessToken.pptx
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,7 +32,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AAA6D7A3-58DD-4EC9-BE55-7A3A6EB0323D} = {9E43FE88-44A9-4429-8204-6AD6534C9868}
 		{FEA83910-5DC2-4DBC-9339-220F8881ECBA} = {AC4C18BF-129A-4932-A879-3CA8F330638E}
-		{86CC15D7-548B-488C-BC98-43DE2BF1AD85} = {AC4C18BF-129A-4932-A879-3CA8F330638E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EB62C0C-0583-46B2-BCE0-44CF2AB413A4}
