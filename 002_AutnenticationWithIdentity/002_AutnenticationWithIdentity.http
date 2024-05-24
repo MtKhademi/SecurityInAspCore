@@ -1,6 +1,27 @@
 @_002_AutnenticationWithIdentity_HostAddress = http://localhost:5126
 
-GET {{_002_AutnenticationWithIdentity_HostAddress}}/weatherforecast/
+
+## Setup Controller
+
+GET {{_002_AutnenticationWithIdentity_HostAddress}}/api/setup/Roles
 Accept: application/json
 
 ###
+
+POST {{_002_AutnenticationWithIdentity_HostAddress}}/api/setup/Roles/Add
+Accept: */*
+Content-Type: application/json
+
+"Seller"
+
+###
+
+
+DELETE  {{_002_AutnenticationWithIdentity_HostAddress}}/api/setup/Roles/Delete
+Accept: */*
+Content-Type: application/json
+
+"string"
+
+###
+

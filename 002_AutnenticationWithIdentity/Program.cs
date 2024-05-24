@@ -36,7 +36,7 @@ namespace _002_AutnenticationWithIdentity
 
             builder.Services.AddDbContext<DatabaseContext>(options =>
             {
-                options.UseSqlite(Guid.NewGuid().ToString());
+                options.UseSqlite("Data Source=DAL\\db.db");
             });
 
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
