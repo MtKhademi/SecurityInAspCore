@@ -22,7 +22,8 @@ namespace _002_AutnenticationWithIdentity.Controllers
 
 
         [HttpPost("Roles/Add")]
-        public async Task<IActionResult> AddNewRole([FromBody]string roleName){
+        public async Task<IActionResult> AddNewRole([FromBody] string roleName)
+        {
             if (string.IsNullOrWhiteSpace(roleName))
                 return BadRequest("role name can not be null or empty");
 
@@ -37,7 +38,8 @@ namespace _002_AutnenticationWithIdentity.Controllers
         }
 
         [HttpDelete("Roles/Delete")]
-        public async Task<IActionResult> DeleteRole([FromBody]string roleName){
+        public async Task<IActionResult> DeleteRole([FromBody] string roleName)
+        {
             if (string.IsNullOrWhiteSpace(roleName))
                 return BadRequest("role name can not be null or empty");
 
@@ -51,5 +53,13 @@ namespace _002_AutnenticationWithIdentity.Controllers
             await _roleManagement.DeleteAsync(role);
             return Ok($"delete {roleName} is successfuled");
         }
+
+
+        [HttpGet("Users")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            return Ok(await _context.Users.ToListAsync());
+        }
+
     }
 }
