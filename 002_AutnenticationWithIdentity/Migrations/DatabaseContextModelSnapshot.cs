@@ -71,6 +71,23 @@ namespace _002_AutnenticationWithIdentity.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "00e3a53b-5619-4974-a7bb-e7b5bf9c8f4a",
+                            Name = "administrator"
+                        },
+                        new
+                        {
+                            Id = "ec9791c1-3f08-4ce5-aa42-b6763d83c77b",
+                            Name = "seller"
+                        },
+                        new
+                        {
+                            Id = "4c951984-f9f3-4be6-85ab-c965cc27c752",
+                            Name = "user"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -158,6 +175,38 @@ namespace _002_AutnenticationWithIdentity.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2d2adbf3-14c5-491b-b05c-4a53af15da20",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "35314552-565c-458a-9bbe-cb09e2634630",
+                            Email = "mt.khademi@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "mt.khademi@gmail.com",
+                            PasswordHash = "123",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "98a647a0-8d95-4136-bd0b-ca8cae05bb58",
+                            TwoFactorEnabled = false,
+                            UserName = "mt.khademi"
+                        },
+                        new
+                        {
+                            Id = "1a35d1d8-866f-4222-be3d-3fccff7d4ff2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "cbff6074-536e-4aa4-88d6-84fbe33f6207",
+                            Email = "mt.khademi2@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "mt.khademi2@gmail.com",
+                            PasswordHash = "123",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "bb84a786-d064-40dd-83d7-c5c0d1c53c2f",
+                            TwoFactorEnabled = false,
+                            UserName = "mt.khademi2"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>

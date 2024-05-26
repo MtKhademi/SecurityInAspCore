@@ -17,11 +17,31 @@ namespace _002_AutnenticationWithIdentity.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
+            base.OnModelCreating(builder);
+
+
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole("administrator"),
+                new IdentityRole("seller"),
+                new IdentityRole("user")
+            );
+
+
             builder.Entity<IdentityUser>().HasData(
                 new IdentityUser
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Email = "mt.khademi@gmail.com",
+                    NormalizedEmail = "mt.khademi@gmail.com",
                     UserName = "mt.khademi",
+                    PasswordHash = "123"
+                },
+                new IdentityUser
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Email = "mt.khademi2@gmail.com",
+                    NormalizedEmail = "mt.khademi2@gmail.com",
+                    UserName = "mt.khademi2",
                     PasswordHash = "123"
                 });
 

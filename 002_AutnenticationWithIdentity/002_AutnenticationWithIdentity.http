@@ -25,3 +25,15 @@ Content-Type: application/json
 
 ###
 
+
+GET  {{_002_AutnenticationWithIdentity_HostAddress}}/api/setup/Users
+Accept: */*
+
+###
+
+
+POST   {{_002_AutnenticationWithIdentity_HostAddress}}/api/setup/Users/AddToARole?email=mt.khademi2@gmail.com&roleName=ADMINISTRATOR
+Accept: */*
+
+###
+
