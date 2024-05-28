@@ -1,0 +1,6 @@
+@_003_WriteOwn_HostAddress = http://localhost:5048
+
+GET {{_003_WriteOwn_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
