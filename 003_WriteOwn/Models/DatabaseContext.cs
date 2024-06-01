@@ -81,7 +81,6 @@ namespace _003_WriteOwn.Models
                         UpdateDateTime = DateTime.Now,
                         InsertDateTime = DateTime.Now
                     }
-
                 ]);
         }
     }

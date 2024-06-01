@@ -1,4 +1,7 @@
+using _003_WriteOwn.Middleware;
 using _003_WriteOwn.Models;
+using _003_WriteOwn.Models.User;
+using _003_WriteOwn.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +18,8 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 });
 
+builder.Services.AddScoped<IHandleAccessToken<UserModel>, HandleAccessTokenCustom>();
+
 
 var app = builder.Build();
 
@@ -25,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
+app.UseJWTUserHandlerToken();
 
 app.MapControllers();
 

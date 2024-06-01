@@ -61,62 +61,62 @@ namespace _003_WriteOwn.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3254),
+                            CreateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(836),
                             CreatedBy = "Mt.khademi",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3283),
+                            InsertDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(847),
                             IsDeleted = false,
                             Name = "Movie 001",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3281)
+                            UpdateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(847)
                         },
                         new
                         {
                             Id = 2,
-                            CreateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3285),
+                            CreateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(849),
                             CreatedBy = "Brother warner",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3288),
+                            InsertDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(850),
                             IsDeleted = false,
                             Name = "Movie 002",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3287)
+                            UpdateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(850)
                         },
                         new
                         {
                             Id = 3,
-                            CreateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3289),
+                            CreateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(851),
                             CreatedBy = "Pixar",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3291),
+                            InsertDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(853),
                             IsDeleted = false,
                             Name = "Movie 003",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3290)
+                            UpdateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(852)
                         },
                         new
                         {
                             Id = 4,
-                            CreateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3292),
+                            CreateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(853),
                             CreatedBy = "Alibaba",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3294),
+                            InsertDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(855),
                             IsDeleted = false,
                             Name = "Movie 004",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3293)
+                            UpdateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(854)
                         },
                         new
                         {
                             Id = 5,
-                            CreateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3357),
+                            CreateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(856),
                             CreatedBy = "Vedio Full intertanment",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3359),
+                            InsertDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(857),
                             IsDeleted = false,
                             Name = "Movie 005",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 5, 29, 10, 56, 32, 360, DateTimeKind.Local).AddTicks(3359)
+                            UpdateDateTime = new DateTime(2024, 5, 30, 11, 40, 18, 322, DateTimeKind.Local).AddTicks(857)
                         });
                 });
 

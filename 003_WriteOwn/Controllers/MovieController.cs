@@ -1,4 +1,5 @@
-﻿using _003_WriteOwn.Extenttions;
+﻿using _003_WriteOwn.AUTH;
+using _003_WriteOwn.Extenttions;
 using _003_WriteOwn.Models;
 using _003_WriteOwn.Models.Movie;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ namespace _003_WriteOwn.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class MovieController(DatabaseContext _context) : ControllerBase
     {
         [HttpPost]
@@ -15,26 +17,15 @@ namespace _003_WriteOwn.Controllers
         {
             await _context.Movies.AddAsync(addDto.ToMovieModel());
             await _context.SaveChangesAsync();
-
             return Ok();
         }
 
         [HttpGet]
         public async Task<IActionResult> GetMovies()
-        {
-            return Ok(await _context.Movies.ToListAsync());
-        }
+            => Ok(await _context.Movies.ToListAsync());
 
         [HttpDelete("{movieId}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int movieId)
-        {
-            _context.Movies.Remove(await _context.Movies.FindAsync(movieId));
-            await _context.SaveChangesAsync();
-            return Ok();
-        }
-
-        [HttpPut()]
-        public async Task<IActionResult> DeleteAsync([FromBody] int movieId)
         {
             _context.Movies.Remove(await _context.Movies.FindAsync(movieId));
             await _context.SaveChangesAsync();
