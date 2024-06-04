@@ -12,7 +12,8 @@ namespace _003_WriteOwn.AUTH
         {
 
             //-- check allow anonymouse
-            var AllowAnonymous = context.Filters.SingleOrDefault(x => x.GetType() == typeof(AllowAnonymousUserAttribute));
+            var AllowAnonymous = context.Filters.SingleOrDefault(x => x.GetType() == 
+                typeof(AllowAnonymousUserAttribute));
             if (AllowAnonymous != null)
                 return;
 
