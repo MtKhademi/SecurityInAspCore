@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using MrMohande3Khademi.DAL;
+using MrMohande3Khademi.Services;
+using MrMohande3Khademi.SwaggerConfig;
 
 namespace MrMohande3Khademi
 {
@@ -13,7 +15,11 @@ namespace MrMohande3Khademi
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(config => {
+                config.OperationFilter<HeaderConfig>();
+            });
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<IAccessControllerService, AccessControllerService>();
 
             builder.Services.AddDbContext<DatabaseContext>(
                 options =>

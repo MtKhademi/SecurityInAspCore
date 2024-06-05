@@ -17,7 +17,7 @@ namespace MrMohande3Khademi.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> RegisterAsync([FromBody] UserRegisterDto userRegisterDto)
         {
-            var user = userRegisterDto.ToUserModel();
+            var user = userRegisterDto.ToUserEntity();
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             return Ok();
@@ -31,7 +31,7 @@ namespace MrMohande3Khademi.Controllers
             if (user is null)
                 return NotFound($"not exist this user : {userLoginDto}");
 
-            return Ok(await _accessControllerService.CreateAccessTokenAsync(user));
+            return Ok(await _accessControllerService.CreateAccessTokenAsync(user.ToUserModel()));
         }
 
         [HttpGet("GetCurrectUser")]

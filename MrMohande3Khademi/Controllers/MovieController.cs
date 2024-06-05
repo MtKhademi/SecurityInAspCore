@@ -17,7 +17,7 @@ namespace MrMohande3Khademi.Controllers
         {
             if (!_accessControllerService.IsAuthenticated)
                 return Forbid();
-            
+
 
             await _context.Movies.AddAsync(addDto.ToMovieModel());
             await _context.SaveChangesAsync();
@@ -26,7 +26,12 @@ namespace MrMohande3Khademi.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetMovies()
-            => Ok(await _context.Movies.ToListAsync());
+        {
+            if (!_accessControllerService.IsAuthrozied)
+                return new StatusCodeResult(StatusCodes.Status403Forbidden);
+
+            return Ok(await _context.Movies.ToListAsync());
+        }
 
         [HttpDelete("{movieId}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int movieId)

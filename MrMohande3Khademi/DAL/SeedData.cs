@@ -70,8 +70,8 @@ namespace MrMohande3Khademi.DAL
 
         public static List<RoleEntity> Roles =>
             [
-                new RoleEntity() { Name = "administrator", ControllerAccess = "movieController" }
-                new RoleEntity() { Name = "user", ControllerAccess = "" }
+                new RoleEntity() { Id = 1 , Name = "administrator", ControllerAccess = "api/movie" },
+                new RoleEntity() { Id = 2, Name = "user", ControllerAccess = "" }
             ];
     }
 }
