@@ -14,30 +14,42 @@ namespace MrMohande3Khademi.Controllers
         DatabaseContext _context,
         IAccessControllerService _accessControllerService) : ControllerBase
     {
-        [HttpPost("Register")]
-        public async Task<IActionResult> RegisterAsync([FromBody] UserRegisterDto userRegisterDto)
+        [HttpGet("GetRoles")]
+        public async Task<IActionResult> GetRoles([FromQuery] string userName)
         {
-            var user = userRegisterDto.ToUserEntity();
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
+            var user = await _context.Users
+                //.Include(ur => ur.Roles)
+                //.ThenInclude(r => r.Role)
+                .SingleOrDefaultAsync(us => us.UserName == userName);
+            //return Ok(user.Roles.Select(x => x.Role).ToList());
+
             return Ok();
         }
 
-        [HttpPost("Login")]
-        public async Task<IActionResult> LoginAsync([FromBody] UserLoginDto userLoginDto)
+        [HttpPost("AddNewRoleToUser")]
+        public async Task<IActionResult> AddNewRoleToUser([FromQuery] string userName, [FromQuery] string roleName)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(
-                us => us.UserName == userLoginDto.UserName && us.Password == userLoginDto.Password);
-            if (user is null)
-                return NotFound($"not exist this user : {userLoginDto}");
+            roleName = roleName.Trim().ToLower();
+            userName = userName.Trim().ToLower();
 
-            return Ok(await _accessControllerService.CreateAccessTokenAsync(user.ToUserModel()));
-        }
+            var role = await _context.Roles.SingleOrDefaultAsync(x => x.Name == roleName);
+            var user = await _context.Users
+                .Include(r => r.Roles)
+                //.ThenInclude(rr => rr.Role)
+                .SingleOrDefaultAsync(us => us.UserName == userName);
 
-        [HttpGet("GetCurrectUser")]
-        public IActionResult GetCurrentUser()
-        {
-            return Ok(_accessControllerService.CurrentUser);
+
+            //if (user.Roles.Any(x => x.Role.Name == roleName))
+            //    return Ok();
+
+            //user.Roles.Add(new DAL.Entities.UserRoleEntity
+            //{
+
+            //    Role = role!,
+            //    RoleId = role!.Id
+            //});
+            await _context.SaveChangesAsync();
+            return Ok();
         }
 
     }

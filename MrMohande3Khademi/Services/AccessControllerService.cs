@@ -7,7 +7,7 @@ namespace MrMohande3Khademi.Services
 {
     public class AccessControllerService : IAccessControllerService
     {
-        private readonly UserModel? _currentUser;
+        private readonly UserJWTModel? _currentUser;
         private readonly IHttpContextAccessor _contextAccessor;
         public AccessControllerService(IHttpContextAccessor contextAccessor)
         {
@@ -19,7 +19,7 @@ namespace MrMohande3Khademi.Services
                 {
                     var base64 = Convert.FromBase64String(token);
                     var userJson = Encoding.UTF8.GetString(base64);
-                    _currentUser = System.Text.Json.JsonSerializer.Deserialize<UserModel>(userJson);
+                    _currentUser = System.Text.Json.JsonSerializer.Deserialize<UserJWTModel>(userJson);
                 }
                 catch (Exception ex)
                 {
@@ -28,9 +28,10 @@ namespace MrMohande3Khademi.Services
                 }
             }
         }
-        public bool IsAuthenticated => (_currentUser is null || _currentUser is not UserModel) ? false : true;
+        public bool IsAuthenticated => (_currentUser is null || _currentUser is not UserJWTModel)
+            ? false : !_currentUser.IsExpier;
 
-        public UserModel? CurrentUser => IsAuthenticated ? _currentUser : null;
+        public UserModel? CurrentUser => IsAuthenticated ? _currentUser.User : null;
 
         public bool IsAuthrozied
         {
@@ -39,14 +40,14 @@ namespace MrMohande3Khademi.Services
                 if (!IsAuthenticated)
                     return false;
 
-                if (!_currentUser.Roles.Any())
+                if (!_currentUser.User.Roles.Any())
                     return false;
 
                 ///api/Movie -> base api/moviecontroller
                 var pathRequest = _contextAccessor.HttpContext.Request.Path.ToString().Replace("api/", "");
                 var accessEndPoint = pathRequest.Substring(0, pathRequest.IndexOf("/"));
 
-                if (!_currentUser.Roles.Any(r => r.ControllerNames.Contains(accessEndPoint)))
+                if (!_currentUser.User.Roles.Any(r => r.ControllerNames.Contains(accessEndPoint)))
                     return false;
 
                 return true;
@@ -55,7 +56,14 @@ namespace MrMohande3Khademi.Services
 
         public async Task<string> CreateAccessTokenAsync(UserModel user)
         {
-            var userJson = System.Text.Json.JsonSerializer.Serialize(user);
+            var jwtUser = new UserJWTModel
+            {
+                User = user,
+                DateTimeLogin = DateTime.Now,
+                ExpierMinute = 1
+            };
+
+            var userJson = System.Text.Json.JsonSerializer.Serialize(jwtUser);
             return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(userJson));
         }
     }

@@ -7,6 +7,6 @@
         public string Password { get; set; }
         public DateTime CreateDateTime { get; set; } = DateTime.Now;
 
-        public List<UserRoleEntity> Roles { get; set; } = [];
+        public ICollection<RoleEntity> Roles { get; set; } = [];
     }
 }

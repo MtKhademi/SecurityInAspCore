@@ -16,7 +16,7 @@ namespace MrMohande3Khademi.Extenttions
         public static UserModel ToUserModel(this UserEntity userEntity)
             => new UserModel
             {
-                Roles = userEntity.Roles.Select(ur => ur.Role).Select(x => x.ToRoleModel()).ToList(),
+                //Roles = userEntity.Roles.Select(ur => ur.Role).Select(x => x.ToRoleModel()).ToList(),
                 UserName = userEntity.UserName,
             };
 

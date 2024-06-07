@@ -6,7 +6,6 @@
         public string Name { get; set; }
         public string ControllerAccess { get; set; } = null!;
 
-        public List<UserRoleEntity> Users { get; set; } = [];
 
     }
 }

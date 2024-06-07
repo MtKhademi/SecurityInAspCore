@@ -1,8 +1,10 @@
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using MrMohande3Khademi.DAL;
 using MrMohande3Khademi.Services;
 using MrMohande3Khademi.SwaggerConfig;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MrMohande3Khademi
 {
@@ -15,9 +17,12 @@ namespace MrMohande3Khademi
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(config => {
-                config.OperationFilter<HeaderConfig>();
-            });
+            //builder.Services.AddSwaggerGen(config => {
+            //    config.OperationFilter<HeaderConfig>();
+            //});
+
+            builder.Services.AddSwaggerGen(option => new AuthenticationConfig().GetOptions());
+
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddScoped<IAccessControllerService, AccessControllerService>();
 

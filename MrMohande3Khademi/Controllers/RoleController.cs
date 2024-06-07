@@ -10,7 +10,20 @@ namespace MrMohande3Khademi.Controllers
         DatabaseContext _context) : ControllerBase
     {
 
-        [HttpGet]
-        public async Task<IActionResult> GetRoles() => Ok(await _context.Roles.ToListAsync());
+        [HttpGet("GetRoles")]
+        public async Task<IActionResult> GetRoles()
+            => Ok(await _context.Roles.ToListAsync());
+
+        [HttpGet("GetUsers")]
+        public async Task<IActionResult> GetUsers([FromQuery] string roleName)
+            => Ok(await _context.Users
+                .Include(us => us.Roles)
+                //.ThenInclude(ro => ro.Role)
+                //.Where(us => us.Roles.Any(r => r.Role.Name.Contains(roleName)))
+                .ToListAsync());
+
+
+
+
     }
 }

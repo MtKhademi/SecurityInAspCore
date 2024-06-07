@@ -61,62 +61,62 @@ namespace MrMohande3Khademi.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5227),
+                            CreateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8384),
                             CreatedBy = "Mt.khademi",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5248),
+                            InsertDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8398),
                             IsDeleted = false,
                             Name = "Movie 001",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5247)
+                            UpdateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8397)
                         },
                         new
                         {
                             Id = 2,
-                            CreateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5250),
+                            CreateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8400),
                             CreatedBy = "Brother warner",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5252),
+                            InsertDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8402),
                             IsDeleted = false,
                             Name = "Movie 002",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5251)
+                            UpdateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8401)
                         },
                         new
                         {
                             Id = 3,
-                            CreateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5253),
+                            CreateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8403),
                             CreatedBy = "Pixar",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5256),
+                            InsertDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8404),
                             IsDeleted = false,
                             Name = "Movie 003",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5255)
+                            UpdateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8404)
                         },
                         new
                         {
                             Id = 4,
-                            CreateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5257),
+                            CreateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8405),
                             CreatedBy = "Alibaba",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5259),
+                            InsertDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8407),
                             IsDeleted = false,
                             Name = "Movie 004",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5258)
+                            UpdateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8406)
                         },
                         new
                         {
                             Id = 5,
-                            CreateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5260),
+                            CreateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8408),
                             CreatedBy = "Vedio Full intertanment",
                             Description = "",
-                            InsertDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5262),
+                            InsertDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8410),
                             IsDeleted = false,
                             Name = "Movie 005",
                             Rate = 10,
-                            UpdateDateTime = new DateTime(2024, 6, 5, 14, 36, 39, 677, DateTimeKind.Local).AddTicks(5262)
+                            UpdateDateTime = new DateTime(2024, 6, 6, 21, 21, 32, 188, DateTimeKind.Local).AddTicks(8409)
                         });
                 });
 
@@ -134,7 +134,12 @@ namespace MrMohande3Khademi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("UserEntityId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserEntityId");
 
                     b.ToTable("Roles");
 
@@ -142,7 +147,7 @@ namespace MrMohande3Khademi.Migrations
                         new
                         {
                             Id = 1,
-                            ControllerAccess = "movieController",
+                            ControllerAccess = "api/movie",
                             Name = "administrator"
                         },
                         new
@@ -175,49 +180,11 @@ namespace MrMohande3Khademi.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MrMohande3Khademi.DAL.Entities.UserRoleEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserRoleEntity");
-                });
-
-            modelBuilder.Entity("MrMohande3Khademi.DAL.Entities.UserRoleEntity", b =>
-                {
-                    b.HasOne("MrMohande3Khademi.DAL.Entities.RoleEntity", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MrMohande3Khademi.DAL.Entities.UserEntity", "User")
-                        .WithMany("Roles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("MrMohande3Khademi.DAL.Entities.RoleEntity", b =>
                 {
-                    b.Navigation("Users");
+                    b.HasOne("MrMohande3Khademi.DAL.Entities.UserEntity", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("UserEntityId");
                 });
 
             modelBuilder.Entity("MrMohande3Khademi.DAL.Entities.UserEntity", b =>
